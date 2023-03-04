@@ -5,5 +5,6 @@ import Transaction from "./Transaction";
 import Main from "./Main";
 import Loading from "./Loading";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 
-export { Blocks, Transactions, Block, Transaction, Main, Loading, Navbar };
+export { Blocks, Transactions, Block, Transaction, Main, Loading, Navbar, Footer };

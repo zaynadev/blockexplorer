@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { ExplorerContext } from "../context";
 import { formatDate, formatTimeAgo, timeAgo } from "../utils";
 import back from "./../assets/images/abstract-shapes-20.svg";
+import Footer from "./Footer";
 import Loading from "./Loading";
 import Navbar from "./Navbar";
 
@@ -15,7 +16,6 @@ const Block = () => {
   async function getBlock() {
     const blockData = await alchemy.core.getBlock(+number);
     setBlock(blockData);
-    console.log({ blockData });
   }
 
   useEffect(() => {
@@ -200,6 +200,7 @@ const Block = () => {
           </div>
         </div>
       </section>
+      <Footer />
     </>
   );
 };

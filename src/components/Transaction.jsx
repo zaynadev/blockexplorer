@@ -7,6 +7,7 @@ import { formatDate, formatTimeAgo, timeAgo } from "../utils";
 import back from "./../assets/images/abstract-shapes-20.svg";
 import Loading from "./Loading";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 const Transaction = () => {
   const { hash } = useParams();
@@ -187,6 +188,7 @@ const Transaction = () => {
           </div>
         </div>
       </section>
+      <Footer />
     </>
   );
 };
