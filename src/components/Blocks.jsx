@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import loading from "./../assets/images/loading.gif";
 
 const Blocks = ({ blocks }) => {
@@ -29,9 +30,9 @@ const Blocks = ({ blocks }) => {
                             </span>
                           </div>
                           <div className="media-body">
-                            <a href="#">#{block.number}</a>
+                            <Link to={`/block/${block.number}`}>#{block.number}</Link>
                             <span className="d-sm-block small text-secondary ml-1 ml-sm-0 text-nowrap">
-                              a few seconds ago
+                              {block.timeAgo}
                             </span>
                           </div>
                         </div>

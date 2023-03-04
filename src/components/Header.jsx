@@ -1,16 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Utils } from "alchemy-sdk";
 import ethereum1 from "./../assets/images/ethereum-1.svg";
 import icon51 from "./../assets/images/icon-51.svg";
 import icon21 from "./../assets/images/icon-2-1.svg";
 import axios from "axios";
+import { ExplorerContext } from "../context";
 
 const etherscanKey = process.env.REACT_APP_ETHERSCAN_API_KEY;
 const url = `https://api.etherscan.io/api?apikey=${etherscanKey}`;
-const Header = ({ alchemy }) => {
+const Header = () => {
   const [ethPrice, setEthPrice] = useState(undefined);
-  const [blockNumber, setBlockNumber] = useState(undefined);
   const [gasPrice, setGasPrice] = useState(undefined);
+  const { alchemy, lastBlock } = useContext(ExplorerContext);
 
   async function getEthPrice() {
     try {
@@ -26,10 +27,6 @@ const Header = ({ alchemy }) => {
     }
   }
 
-  async function getBlockNumber() {
-    setBlockNumber(await alchemy.core.getBlockNumber());
-  }
-
   async function getGasPrice() {
     const result = await alchemy.core.getGasPrice();
     // console.log({ result: Math.ceil(Utils.formatUnits(result, "gwei")) });
@@ -38,7 +35,6 @@ const Header = ({ alchemy }) => {
 
   useEffect(() => {
     getEthPrice();
-    getBlockNumber();
     getGasPrice();
   }, []);
 
@@ -68,7 +64,7 @@ const Header = ({ alchemy }) => {
               <div className="media-body header-body ">
                 <h2 className="font-size-1 text-uppercase mb-0">Latest block</h2>
                 <a className="text-size-1 text-link textRoll textRoll1">
-                  <span id="eth_usd">{blockNumber ? blockNumber : "..."}</span>
+                  <span id="eth_usd">{lastBlock ? lastBlock : "..."}</span>
                 </a>
               </div>
             </div>
