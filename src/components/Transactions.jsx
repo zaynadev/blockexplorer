@@ -1,6 +1,7 @@
 import React from "react";
 import { Utils } from "alchemy-sdk";
 import loading from "./../assets/images/loading.gif";
+import { Link } from "react-router-dom";
 
 const Transactions = ({ transactions }) => {
   return (
@@ -20,7 +21,7 @@ const Transactions = ({ transactions }) => {
             <ul id="scroll-part-container" className="transferler_data">
               {transactions.length > 0 ? (
                 transactions.map((transaction, i) => (
-                  <li key={transaction.blockHash + i} className="newrow">
+                  <li key={transaction.hash + i} className="newrow">
                     <div className="row" style={{ padding: "10px 0px 10px 9px" }}>
                       <div className="col-sm-4">
                         <div className="media align-items-sm-center mr-4 mb-1 mb-sm-0">
@@ -30,7 +31,7 @@ const Transactions = ({ transactions }) => {
                             </span>
                           </div>
                           <div className="media-body">
-                            <a href="#">{transaction.blockHash.slice(0, 10)} ...</a>
+                            <Link to={`transaction/${transaction.hash}`}>{transaction.hash.slice(0, 10)} ...</Link>
                             <span className="d-sm-block small text-secondary ml-1 ml-sm-0 text-nowrap">
                               a few seconds ago
                             </span>

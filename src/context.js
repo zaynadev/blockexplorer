@@ -20,7 +20,7 @@ export const ExplorerProvider = ({ children }) => {
     const lastBlockNumber = await alchemy.core.getBlockNumber();
     setLastBlock(lastBlockNumber);
     const blocks = [];
-    for (let i = 1; i <= 10; i++) {
+    for (let i = 1; i <= 7; i++) {
       const block = await alchemy.core.getBlockWithTransactions(+lastBlockNumber - i);
       blocks.push({
         number: block.number,
@@ -54,7 +54,6 @@ export const ExplorerProvider = ({ children }) => {
           transactions: block.transactions.slice(0, 10),
         };
         setBlocks((prev) => [b, ...prev]);
-        console.log({ transaction: block.transactions[0] });
         setTransactions(block.transactions.slice(0, 10));
       });
   }, [blockReady]);
