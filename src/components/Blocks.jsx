@@ -1,7 +1,7 @@
 import React from "react";
 import loading from "./../assets/images/loading.gif";
 
-const Block = ({ blocks }) => {
+const Blocks = ({ blocks }) => {
   return (
     <div className="son_bloklar col-md-6">
       <div className="card" style={{ borderRadius: "10px 10px 0px 0px" }}>
@@ -73,4 +73,4 @@ const Block = ({ blocks }) => {
   );
 };
 
-export default Block;
+export default Blocks;
