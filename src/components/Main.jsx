@@ -3,12 +3,14 @@ import { ExplorerContext } from "../context";
 import back from "./../assets/images/abstract-shapes-20.svg";
 import Blocks from "./Blocks";
 import Header from "./Header";
+import Navbar from "./Navbar";
 import Transactions from "./Transactions";
 
 const Main = () => {
   const { alchemy, blocks, transactions } = useContext(ExplorerContext);
   return (
-    <div>
+    <>
+      <Navbar />
       <section
         style={{
           backgroundPosition: "center",
@@ -27,7 +29,7 @@ const Main = () => {
           </div>
         </div>
       </section>
-    </div>
+    </>
   );
 };
 

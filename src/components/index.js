@@ -4,5 +4,6 @@ import Block from "./Block";
 import Transaction from "./Transaction";
 import Main from "./Main";
 import Loading from "./Loading";
+import Navbar from "./Navbar";
 
-export { Blocks, Transactions, Block, Transaction, Main, Loading };
+export { Blocks, Transactions, Block, Transaction, Main, Loading, Navbar };
